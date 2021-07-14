@@ -34,6 +34,40 @@ body{
     transition: 1s linear;
 }
 
+@media screen and (max-width:950px) {
+    .card{
+        width: 300px;
+        height: 400px;
+
+    }
+    
+}
+
+@media screen and (max-width:650px) {
+    .card{
+        width: 200px;
+        height: 300px;
+
+    }
+    
+}
+
+@media screen and (max-width:450px) {
+    .card{
+        width: 150px;
+        height: 250px;
+
+    }
+    .card .content .detail h2{
+        font-size: 1rem;
+    }
+
+    .card .content .detail p{
+        font-size: 0.8rem;
+    }
+    
+}
+
 
 /* When the card is open transfering the card to 50% in x direction to fit the open card */
 /* If you want you can comment this line and see why it's little bit necessary. It's always good to try somethings by yourself. */
