@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+body{
+    background: url("images/back.jpg") no-repeat;
+    background-size: cover;
+
+    /* centering the card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    /* bluring the background image */
+    backdrop-filter: blur(5px);
+}
+
+.card{
+    background: white;
+    position: relative;
+    /* background: white; */
+    width: 400px;
+    height: 500px;
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.5);
+
+    /* For 3d transformation */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: 1s linear;
+}
+
+
+/* When the card is open transfering the card to 50% in x direction to fit the open card */
+/* If you want you can comment this line and see why it's little bit necessary. It's always good to try somethings by yourself. */
+.card:hover{
+    transform: translateX(50%);
+}
+
+.img-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    /* So that the rotation axis is left side of img */
+    transform-origin: left;
+
+    transform-style: preserve-3d;
+    transition: 1s linear;
+    background: black;
+    /* background-size: cover; */
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.5);
+}
+
+
+
+.card:hover .img-box{
+    transform: rotateY(-180deg);
+
+
+}
+
+.img-box img{
+    position: absolute;
+    top: 0;
+    left: -0.3px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* When the image is rotated it should hide it's background vissibility */
+    backface-visibility: hidden;
+}
+
+
+/* Setting up the second image so that it appear behind the current image */
+.img-box img:nth-child(2){
+    transform: rotateY(180deg);
+}
+
+
+/* All this is to set the content style it's very easy you can try it yourself. */
+/* It's very important in development to try somethings youself that's the secret art of learinig */
+.content{
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px; */
+    width: 100%;
+    height: 100%;
+    background: grey;
+}
+
+.card .content .detail{
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    text-align: center;
+
+}
+
+.card .content .detail h2, p{
+    color: white;
+}
+
+.card .content .detail h2 span{
+    /* color: palevioletred; */
+    font-size: 1.3rem;
+    margin-bottom: 27px;
+    display: inline-block;
+}
+
+.card .content .detail p{
+    margin: 0 15px;
+}
